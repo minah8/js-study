@@ -9,7 +9,7 @@
 
     <script>
 
-        /* 
+                /* 
         Q. n의 약수의 개수를 구하기
         1. 정수 n을 전달받아 n의 약수들을 출력하고 
         약수의 개수를 리턴하는 함수 calcDivisor를 정의하세요.
@@ -21,21 +21,19 @@
 
         var arr = [];
 
-        function calcDivisor (n) {
+        function calc (n) {
             var cnt = 0;
             for (var i=1; i<=n; i++) {
-                if ( n % i === 0) {
+                if (n % i === 0) {
                     arr.push(i);
-                    cnt ++;
+                    cnt++;
                 }
             }
-            console.log(`${n}의 약수: ${arr}`);
-            console.log(`${n}의 약수의 개수: ${cnt}`);
-            return calcDivisor;
+            console.log(arr);
+            console.log(cnt);
         }
-
-        calcDivisor(10)
-
+        
+        calc(10)
 
     </script>
     
