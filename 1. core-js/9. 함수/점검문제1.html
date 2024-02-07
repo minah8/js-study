@@ -19,22 +19,21 @@
         약수들은 배열에 담아서 한번에 출력해 주세요. (그래야 가로로 출력됨)
         */
 
-        var arr = [];
-
-        function calcDivisor (n) {
-            var cnt = 0;
+       
+       function calcDivisor (n) {
+           var arr = [];
             for (var i=1; i<=n; i++) {
                 if ( n % i === 0) {
                     arr.push(i);
-                    cnt ++;
                 }
             }
             console.log(`${n}의 약수: ${arr}`);
-            console.log(`${n}의 약수의 개수: ${cnt}`);
-            return calcDivisor;
+            // count 변수로 숫자를 직접 세도 되지만, 약수 배열이 있으니까 요소의 개수가 약수의 개수일 것이다.
+            return arr.length;
         }
 
-        calcDivisor(10)
+        var divCount = calcDivisor(10);
+        console.log(`약수의 개수: ${divCount}`);
 
 
     </script>
