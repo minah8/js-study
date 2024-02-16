@@ -16,6 +16,11 @@ const calculate = type => {
     // 계산 전 값을 기억
     const originalResult = currentResult;
     const enteredNumber = getUserNumberInput();
+
+    if(!enteredNumber && enteredNumber !== 0) {
+        alert('문제 발생!');
+        return;
+    }
     
     let mark;
     if(type === 'ADD') {
@@ -28,6 +33,10 @@ const calculate = type => {
         mark = 'x';
         currentResult *= enteredNumber;
     } else {
+        if(enteredNumber === 0) {
+            alert('0으로 나눌 수 없습니다.');
+            return;
+        }
         mark = '/';
         currentResult /= enteredNumber;
     }
@@ -51,13 +60,11 @@ const writeToLog = (operation, prevResult, number, result) => {
         result
     };
     logEntries.push(logObject);
-
     console.log(logEntries);
 
     // 화면에 로그를 li로 렌더링하는 함수 호출
     renderToLog(logObject);
-
-}
+};
 
 // 로그 이력을 화면에 렌더링 하는 함수
 // 매개변수로 객체가 전달된다면 매개변수 위치에서 디스트럭쳐링이 가능합니다.
@@ -74,26 +81,11 @@ const renderToLog = ({operation: mark, prevResult, number, result}) => {
 }
 
 
-// 더하기 버튼 이벤트 핸들러
-const addHandler = () => {
-    calculate('ADD');
-    
-
-
-}
-
-const subHandler = () => {
-   calculate('SUB');
-}
-
-const multiHandler = () => {
-    calculate('MULTI');
-}
-
-const divideHandler = () => {
-    calculate('DIVIDE');
-}
-
+// 버튼 이벤트 핸들러
+const addHandler = () => calculate('ADD');
+const subHandler = () => calculate('SUB');
+const multiHandler = () =>calculate('MULTI');
+const divideHandler = () =>calculate('DIVIDE');
 
 
 // ========== 이벤트 핸들러 바인딩 ========== //
