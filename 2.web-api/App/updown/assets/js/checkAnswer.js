@@ -55,14 +55,17 @@ function caseDown($icon) {
 
 }
 
-function correctAnswer() {
+function correctAnswer($icon) {
 
     // 1. #finish 박스에 class 'show' 부여
+        document.getElementById('finish').classList.add('show');
 
     // 2. #numbers 클릭 이벤트 해제
-    $numbers.onclick = null;
+        const $numbers = document.getElementById('numbers');
+        $numbers.onclick = null;
 
     // 3. 사용자가 선택한 아이콘에 id 'move' 추가
+        $icon.id = 'move';
 
 }
 
